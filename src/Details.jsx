@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Details = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ const Details = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add logic to handle form submission (e.g., sending data to a server)
+    
     console.log('Form data submitted:', formData);
   };
 
@@ -156,9 +157,15 @@ const Details = () => {
           </select>
         </label>
 
+        
+
+  
+        <Link to="/LoanAmount">
         <button style={submitButtonStyles} type="submit">
           Submit
         </button>
+        </Link>
+
       </form>
     </div>
   );

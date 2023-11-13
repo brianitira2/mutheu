@@ -1,0 +1,53 @@
+/* loanamount.component.css */
+
+.loan-amount-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #f2f2f2;
+  }
+  
+  .loan-amount-header {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .loan-amount-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .loan-amount-checkbox {
+    margin-bottom: 10px;
+  }
+  
+  .loan-amount-label {
+    color: black;
+  }
+  
+  .loan-amount-button {
+    background: linear-gradient(to right, #4CAF50, #45a049); /* Green gradient background */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .loan-amount-button:hover {
+    background: linear-gradient(to right, #45a049, #4CAF50); /* Change the gradient on hover */
+  }
+  
+  /* Media query for screens smaller than 600px */
+  @media (max-width: 600px) {
+    .loan-amount-header {
+      font-size: 1.5em; /* Adjust the font size for smaller screens */
+    }
+  
+    .loan-amount-options {
+      flex-direction: column;
+    }
+  }
+  
