@@ -1,0 +1,46 @@
+/* congrats.component.css */
+
+.congrats-container {
+    text-align: center;
+    padding: 50px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .congrats-message {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .mpesa-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .mpesa-message {
+    font-size: 1.2em;
+  }
+  
+  .mpesa-amount {
+    font-size: 1.5em;
+    color: #4CAF50;
+    margin-top: 10px;
+  }
+  
+  /* Media query for screens smaller than 600px */
+  @media (max-width: 600px) {
+    .congrats-message {
+      font-size: 1.5em;
+    }
+  
+    .mpesa-message {
+      font-size: 1em;
+    }
+  
+    .mpesa-amount {
+      font-size: 1.2em;
+    }
+  }
+  

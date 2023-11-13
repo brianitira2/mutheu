@@ -14,12 +14,12 @@ const LoanAmount = () => {
   ];
 
   const handleCheckLimit = () => {
-   
+    // Redirect to Congrats page with the selected amount as a query parameter
     console.log('Checking loan limit for:', selectedAmount);
   };
 
-  const handleCheckboxChange = (id) => {
-    setSelectedAmount(id);
+  const handleCheckboxChange = (amount) => {
+    setSelectedAmount(amount);
   };
 
   return (
@@ -32,20 +32,18 @@ const LoanAmount = () => {
             <input
               type="checkbox"
               value={amount}
-              checked={selectedAmount === id}
-              onChange={() => handleCheckboxChange(id)}
+              checked={selectedAmount === amount}
+              onChange={() => handleCheckboxChange(amount)}
             />
             <span className="loan-amount-label">{`Ksh ${amount}`}</span>
           </label>
         ))}
       </div>
 
-     
-
-      <Link to="/Congrats">
-      <button className="loan-amount-button" onClick={handleCheckLimit}>
-        Click to Apply
-      </button>
+      <Link to={`/Congrats?loanAmount=${selectedAmount}`}>
+        <button className="loan-amount-button" onClick={handleCheckLimit}>
+          Click to Apply
+        </button>
       </Link>
     </div>
   );
