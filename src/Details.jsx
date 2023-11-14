@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Details = () => {
@@ -15,6 +15,12 @@ const Details = () => {
     dateToPayLoan: '',
   });
 
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    validateForm();
+  }, [formData]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,8 +31,33 @@ const Details = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     console.log('Form data submitted:', formData);
+    // Add additional logic for form submission
+  };
+
+  const validateForm = () => {
+    const isFirstNameValid = formData.firstName.trim() !== '';
+    const isLastNameValid = formData.lastName.trim() !== '';
+    const isIdNumberValid = formData.idNumber.trim() !== '';
+    const isDobValid = formData.dob.trim() !== '';
+    const isCurrentCityValid = formData.currentCity.trim() !== '';
+    const isMobileNumberValid = formData.mobileNumber.trim() !== '';
+    const isCurrentJobValid = formData.currentJob.trim() !== '';
+    const isTotalIncomeValid = formData.totalIncome.trim() !== '';
+    const isDateToPayLoanValid = formData.dateToPayLoan.trim() !== '';
+
+    const isValid =
+      isFirstNameValid &&
+      isLastNameValid &&
+      isIdNumberValid &&
+      isDobValid &&
+      isCurrentCityValid &&
+      isMobileNumberValid &&
+      isCurrentJobValid &&
+      isTotalIncomeValid &&
+      isDateToPayLoanValid;
+
+    setIsFormValid(isValid);
   };
 
   return (
@@ -157,15 +188,18 @@ const Details = () => {
           </select>
         </label>
 
-        
-
-  
         <Link to="/LoanAmount">
-        <button style={submitButtonStyles} type="submit">
-          Submit
-        </button>
+          <button
+            style={{
+              ...submitButtonStyles,
+              ...(isFormValid ? {} : { opacity: 0.5, cursor: 'not-allowed' }),
+            }}
+            type="submit"
+            disabled={!isFormValid}
+          >
+            Submit
+          </button>
         </Link>
-
       </form>
     </div>
   );
@@ -178,7 +212,7 @@ const formContainer = {
   background: 'linear-gradient(to right, #4CAF50, #45a049)',
   borderRadius: '10px',
   boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-  width: '100%', // Take the entire width on mobile screens
+  width: '100%',
   boxSizing: 'border-box',
 };
 
@@ -212,10 +246,6 @@ const submitButtonStyles = {
   borderRadius: '5px',
   cursor: 'pointer',
   transition: 'background 0.3s ease-in-out',
-};
-
-const submitButtonHoverStyles = {
-  background: 'linear-gradient(to right, #45a049, #4CAF50)',
 };
 
 export default Details;

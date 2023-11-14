@@ -43,4 +43,8 @@
       font-size: 1.2em;
     }
   }
-  
+
+  .image-settings-1{
+    height: 300px;
+    width: 100%;
+  }

@@ -76,3 +76,8 @@
     display: flex;
     justify-content: center;
   }
+
+  .image-settings{
+    height: 350px;
+    width: 100%;
+  }

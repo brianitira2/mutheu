@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/LoanAmount" element={<LoanAmount />} />
         </Routes>
 
-        <Footer/>
+      
       </div>
     </Router>
   );

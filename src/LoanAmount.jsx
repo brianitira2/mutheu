@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './LoanAmount.css';
 import { Link } from 'react-router-dom';
 
+import Footer from './Footer';
+
 const LoanAmount = () => {
   const [selectedAmount, setSelectedAmount] = useState(null);
 
@@ -14,7 +16,7 @@ const LoanAmount = () => {
   ];
 
   const handleCheckLimit = () => {
-    // Redirect to Congrats page with the selected amount as a query parameter
+    
     console.log('Checking loan limit for:', selectedAmount);
   };
 
@@ -25,6 +27,7 @@ const LoanAmount = () => {
   return (
     <div className="loan-amount-container">
       <h2 className="loan-amount-header">Secure Prime Loans</h2>
+      <h3 className='loan-amount-header'>select the amount you wish to borrow</h3>
 
       <div className="loan-amount-options">
         {loanAmounts.map(({ amount, id }) => (
@@ -41,10 +44,16 @@ const LoanAmount = () => {
       </div>
 
       <Link to={`/Congrats?loanAmount=${selectedAmount}`}>
-        <button className="loan-amount-button" onClick={handleCheckLimit}>
+        <button 
+          className="loan-amount-button" 
+          onClick={handleCheckLimit}
+          disabled={selectedAmount === null}
+        >
           Click to Apply
         </button>
       </Link>
+
+      <Footer />
     </div>
   );
 };
