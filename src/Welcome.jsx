@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 const Welcome = () => {
   return (
+    <>
     <div>
       <h1 className='welcome-header-text'>SECURE  PRIME LOANS</h1>
       <h2 className='welcome-header2-text'>where your financial dreams come true</h2>
@@ -21,8 +22,17 @@ const Welcome = () => {
       </div>
       </Link>
 
-      <Footer/>
+       
+
+   
       </div>
+
+      <div className='footer'>
+  <p>Secure Prime Loans was built by Brian Itira</p>
+  <p>&copy; 2023</p>
+
+  </div>
+    </>
   )
 }
 
